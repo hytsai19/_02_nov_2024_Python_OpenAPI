@@ -1,13 +1,19 @@
 from pprint import pprint
+import openpyxl
+from openpyxl import Workbook,worksheet
 import tools
 
 def main():
-    data:list[dict] = tools.get_aqi(excel_name='aqi.xlsx')
-    for item in data:
-        print(item['sitenames'])
+    sitenames:list[str] = tools.get_sitenames(excel_name='aqi.xlsx')
+    print(sitenames)
+    wb:Workbook = openpyxl.Workbook()
+    sheet:worksheet = wb.active
+    sheet.title = "站點名稱"
+    for idy ,name in enumerate(sitenames):
+        print(name)
+        sheet.cell(column=1,row=idy+1,value=name)
+    wb.save('老板要的資訊.xlsx')
 
-if __name__ == '__main__':
-    main()
 
-def main)(:)
-data:list[dict] = Tools
+    if __name__ == '__main__':
+        main()
