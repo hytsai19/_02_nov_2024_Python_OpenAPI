@@ -8,3 +8,13 @@ add_selectbox = st.sidebar.selectbox(
 )
 #檔名不要有空格
 #run prgramme要從terminal下command: streamlit run "file_name.py"
+
+# "with" notation
+
+with st.sidebar:
+    add_selectbox = st.selectbox(
+       "請選擇站點名稱:",
+        sitenames  
+    )
+
+    st.title(f"{add_selectbox}")
