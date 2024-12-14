@@ -13,3 +13,4 @@ except Exception as error:
     st.stop()
 
 st.table(youbike_data)
+#在teminal按ctrl+c可停止網頁running
