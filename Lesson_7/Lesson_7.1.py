@@ -15,3 +15,7 @@ if r.status_code == 200:
 
 else:
     print("下載有問題")
+    file = StringIO(r.text)
+    reader = DictReader(file)
+    list_reader:list[dict] = list(reader)
+    print(list_reader)
