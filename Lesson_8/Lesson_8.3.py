@@ -10,12 +10,14 @@ youbike_data:list[dict] = fetch_youbike_data()
 # 最下方是顯示該行政區域的YouBike站點資訊的地圖
 sarea_list = sorted(set(map(lambda item:item['sarea'],youbike_data)))
 col1,col2 = st.columns(2)
-with col1:
-    selected_sarea = st.selectbox("行政區域",sarea_list)
+col1.selectbox("行政區域",area_list)
 
-with col2:
-    filter_data = filter(lambda item:item['sarea'] == selected_sarea,youbike_data)
-    st.dataframe(filter_data)
+# with col1:
+#     selected_sarea = st.selectbox("行政區域",sarea_list)
+
+# with col2:
+#     filter_data = filter(lambda item:item['sarea'] == selected_sarea,youbike_data)
+#     st.dataframe(filter_data)
 
 #顯示地圖
 filter_data = list(filter(lambda item:item['sarea'] == selected_sarea,youbike_data))
